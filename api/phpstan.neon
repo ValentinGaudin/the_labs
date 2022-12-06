@@ -1,0 +1,12 @@
+includes:
+    - ./vendor/nunomaduro/larastan/extension.neon
+    - ./vendor/thecodingmachine/phpstan-strict-rules/phpstan.neon
+
+parameters:
+    paths:
+        - app
+        - database
+        - lang
+        - routes
+    level: max
+    checkMissingIterableValueType: false

@@ -1,0 +1,5 @@
+services:
+  orchestrator:
+    ports:
+      - 80:80
+      - 443:443

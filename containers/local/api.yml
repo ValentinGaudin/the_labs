@@ -1,0 +1,10 @@
+services:
+  api:
+    volumes:
+      - ../api:/var/www/html/:delegated
+    environment:
+      # STARTUP COMMANDS
+      PHP_EXTENSION_XDEBUG: 1
+      PHP_IDE_CONFIG: serverName=docker-tipsandtricks
+      STARTUP_COMMAND_1: composer install
+      STARTUP_COMMAND_2: php artisan migrate --force

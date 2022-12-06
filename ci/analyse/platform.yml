@@ -1,0 +1,36 @@
+analyse_platform:
+  stage: analyse
+  image: thecodingmachine/php:8.1-v4-apache-node16
+  services:
+    - mysql:8.0
+  cache:
+    paths:
+      - api/vendor
+      - $HOME/.composer
+  before_script:
+    - cd platform
+    - composer config http-basic.nova.laravel.com ${NOVA_USERNAME} ${NOVA_LICENSE_KEY}
+    - cp ../ci/scripts/platform.sh install.sh
+    - sh install.sh
+  script:
+    - composer phpstan
+    - composer phpcs
+    - composer run-script --timeout=600 phpunit
+  variables:
+    PHP_INI_MEMORY_LIMIT: 2g
+    PHP_EXTENSION_GD: 1
+    PHP_EXTENSION_XDEBUG: 1
+    PHP_EXTENSION_INTL: 1
+    MYSQL_DATABASE: ${CI_DATABASE_NAME}
+    MYSQL_USER: ${CI_DATABASE_USER}
+    MYSQL_PASSWORD: ${CI_DATABASE_PASSWORD}
+    MYSQL_ROOT_PASSWORD: ${CI_DATABASE_PASSWORD}
+    DB_DATABASE: ${CI_DATABASE_NAME}
+    DB_USERNAME: ${CI_DATABASE_USER}
+    DB_PASSWORD: ${CI_DATABASE_PASSWORD}
+    DB_HOST: mysql
+    APP_ENV: local
+    NOVA_DOMAIN_NAME: localhost
+  except:
+    - staging
+    - master

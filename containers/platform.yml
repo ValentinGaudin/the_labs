@@ -1,0 +1,11 @@
+services:
+  platform:
+    image: thecodingmachine/nodejs:16
+    expose:
+      - 3000
+    environment:
+      NODE_ENV: ${NODE_ENV}
+      DOMAIN: ${DOMAIN}
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.platform.rule=Host(`platform.${DOMAIN}`)
