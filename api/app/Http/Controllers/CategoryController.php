@@ -1,0 +1,66 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Requests\StoreCategoryRequest;
+use App\Http\Requests\UpdateCategoryRequest;
+use App\Models\Category;
+use Illuminate\Http\Response;
+
+class CategoryController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return Response
+     */
+    public function index()
+    {
+        //
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param StoreCategoryRequest $request
+     * @return Response
+     */
+    public function store(StoreCategoryRequest $request)
+    {
+        //
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param Category $category
+     * @return Response
+     */
+    public function show(Category $category)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param UpdateCategoryRequest $request
+     * @param Category              $category
+     * @return Response
+     */
+    public function update(UpdateCategoryRequest $request, Category $category)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param Category $category
+     * @return Response
+     */
+    public function destroy(Category $category)
+    {
+        //
+    }
+}

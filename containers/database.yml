@@ -2,7 +2,7 @@ services:
   database:
     image: mysql:8.0
     volumes:
-      - database_volume_tipsandtricks:/var/lib/mysql
+      - database_volume_the_labs:/var/lib/mysql
     environment:
       MYSQL_DATABASE: ${DATABASE_NAME}
       MYSQL_USER: ${DATABASE_USER}
@@ -10,4 +10,4 @@ services:
       MYSQL_ROOT_PASSWORD: ${DATABASE_ROOT_PASSWORD}
 
 volumes:
-  database_volume_tipsandtricks:
+  database_volume_the_labs:
