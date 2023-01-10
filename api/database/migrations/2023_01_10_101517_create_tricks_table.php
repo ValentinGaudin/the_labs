@@ -13,17 +13,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('tricks', function (Blueprint $table) {
             $table->id();
-            $table->string('civility');
-            $table->string('lastname');
-            $table->string('firstname');
-            $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->rememberToken();
+            $table->string('title');
+            $table->longText('description');
             $table->timestamps();
-            $table->softDeletes();
+        });
+
+        Schema::create('category_trick', function (Blueprint $table) {
+            $table->foreignId('category_id')->constrained('categories');
+            $table->foreignId('trick_id')->constrained('tricks');
         });
     }
 
@@ -34,6 +33,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('category_trick');
+        Schema::dropIfExists('tricks');
     }
 };

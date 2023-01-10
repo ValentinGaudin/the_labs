@@ -3,5 +3,6 @@ services:
     environment:
       STARTUP_COMMAND_1: npm install
       STARTUP_COMMAND_2: npm run dev -- --port 3000 --host
+#      STARTUP_COMMAND_3: npx tailwindcss -i ./src/app.css -o ./dist/app.css --watch
     volumes:
       - ../platform:/usr/src/app/:delegated

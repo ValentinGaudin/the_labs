@@ -5,6 +5,6 @@ services:
     environment:
       # STARTUP COMMANDS
       PHP_EXTENSION_XDEBUG: 1
-      PHP_IDE_CONFIG: serverName=docker-tipsandtricks
+      PHP_IDE_CONFIG: serverName=docker-the_labs
       STARTUP_COMMAND_1: composer install
-      STARTUP_COMMAND_2: php artisan migrate --force
+#      STARTUP_COMMAND_2: php artisan migrate --force
