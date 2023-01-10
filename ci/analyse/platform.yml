@@ -9,7 +9,6 @@ analyse_platform:
       - $HOME/.composer
   before_script:
     - cd platform
-    - composer config http-basic.nova.laravel.com ${NOVA_USERNAME} ${NOVA_LICENSE_KEY}
     - cp ../ci/scripts/platform.sh install.sh
     - sh install.sh
   script:
@@ -30,7 +29,6 @@ analyse_platform:
     DB_PASSWORD: ${CI_DATABASE_PASSWORD}
     DB_HOST: mysql
     APP_ENV: local
-    NOVA_DOMAIN_NAME: localhost
   except:
     - staging
     - master
